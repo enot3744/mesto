@@ -10,34 +10,24 @@
   <div class="page">
     <header class="header">
       <img class="header__logo" src="blocks/header/images/logo.svg" alt="Логотип">
-      <div class="header__line"></div>
     </header>
     <main class="content">
       <section class="profile">
         <img class="profile__avatar" src="blocks/profile/images/Jacques-Cousteau.jpg" alt="Аватар">
         <div class="profile__info">
           <h1 class="profile__personality">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button" type="button"></button>
+          <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
           <p class="profile__profession">Исследователь океана</p>
         </div>
-        <button class="profile__add-button"></button>
-      </section>
-      <section class="popup">
-        <form class="popup__container">
-          <h3 class="popup__title">Редактировать профиль</h3>
-          <input class="popup__name" placeholder="Имя">
-          <input class="popup__profession" placeholder="Профессия">
-          <button class="popup__submit-button" type="submit">Сохранить</button>
-          <button class="popup__close-icon" type="button"></button>
-        </form>
+        <button class="profile__add-button" type="button" aria-label="Добавить"></button>
       </section>
       <section>
-        <ul class="list-style elements">
+        <ul class="elements">
           <li class="element">
             <img class="element__image" src="blocks/elements/images/kirill-pershin-1088404.jpg" alt="Карачаевск">
             <div class="element__group">
               <h2 class="element__title">Карачаевск</h2>
-              <div class="element__like"></div>
+              <button class="element__like" type="button"></button>
             </div>
           </li>
           <li class="element ">
@@ -81,7 +71,18 @@
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <form class="popup__form" name="form-user">
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <input class="popup__user popup__user_name" placeholder="Имя" name="name">
+          <input class="popup__user popup__user_profession" placeholder="Профессия" name="profession">
+          <button class="popup__submit-button" type="submit">Сохранить</button>
+        </form>
+        <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
+      </div>
+    </div>
   </div>
-  <script src="index.js"></script>
+  <script src="script/index.js"></script>
 </body>
 </html>

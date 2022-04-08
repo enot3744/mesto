@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.popup__close-icon:hover {
+  opacity: .6;
+}
+
 @media all and (min-width: 320px) and (max-width: 768px) {
   .popup__close-icon {
     width: 20px;

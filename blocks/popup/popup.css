@@ -1,5 +1,13 @@
 .popup {
   display: none;
+	position: fixed;
+	max-width: 430px;
+  height: max-content;
+  margin: auto; 
+  left: 0; 
+  right: 0; 
+  top:0; 
+  bottom: 0;
 }
 
 .popup::before {
@@ -11,4 +19,10 @@
 	width: 100%;
 	height: 100%;
 	opacity: 0.5;
+}
+
+@media all and (min-width: 320px) and (max-width: 768px) {
+  .popup {
+    max-width: 282px;
+  }
 }

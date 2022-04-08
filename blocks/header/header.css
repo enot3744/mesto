@@ -1,10 +1,13 @@
 .header {
   margin: 45px 200px 38px 200px;
+  border-bottom: solid 1px rgba(84, 84, 84, .7);
+  padding-bottom: 41px;
 }
 
 @media all and (min-width: 320px) and (max-width: 768px) {
   .header {
     margin: 28px auto 42px auto;
+    padding-bottom: 31.6px;
    
   }
 }
