@@ -5,8 +5,8 @@ const closeButton = popup.querySelector('.popup__close-icon');
 const openButton = profile.querySelector('.profile__edit-button');
 let profilePersonality = content.querySelector('.profile__personality');
 let profileProfession = content.querySelector('.profile__profession');
-let popupUserName = popup.querySelector('.popup__user_name');
-let popupUserProfession = popup.querySelector('.popup__user_profession');
+let popupUserName = popup.querySelector('.popup__user_form_name');
+let popupUserProfession = popup.querySelector('.popup__user_form_profession');
 
 function popupFormOpen () {
   popup.classList.add('popup_opened');
@@ -25,7 +25,6 @@ function formSubmitHandler (evt) {
   evt.preventDefault();
   profilePersonality.textContent = popupUserName.value;
   profileProfession.textContent = popupUserProfession.value;
-  popupFormOpen();
   popupFormClose();
 }
 
