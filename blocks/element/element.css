@@ -1,6 +1,7 @@
 .element {
   background-color: #FFF;
-  max-width: 282px;
+  min-width: 282px;
   border-radius: 10px;
   margin: auto;
+  position: relative;
 }

@@ -1,0 +1,7 @@
+.popup-img {
+  max-width: max-content;
+}
+
+.popup-img::before {
+  opacity: .9;
+}
