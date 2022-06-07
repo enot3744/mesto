@@ -1,4 +1,4 @@
-const popup = document.querySelector('.popup__edit_profile');
+const popup = document.querySelector('.popup_edit-profile');
 const profile = document.querySelector('.profile');
 const content = document.querySelector('.content');
 
@@ -34,7 +34,7 @@ function formSubmitHandler (evt) {
 
 popup.addEventListener('submit', formSubmitHandler);
 
-const popupAddPlace = document.querySelector('.popup__add_place');
+const popupAddPlace = document.querySelector('.popup_add-place');
 const openButtonAdd = profile.querySelector('.profile__add-button');
 const popupUserTitle = popupAddPlace.querySelector('.popup__user_form_title');
 const popupUserLink = popupAddPlace.querySelector('.popup__user_form_link');
