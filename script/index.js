@@ -1,7 +1,6 @@
 const profilePopup = document.querySelector('.popup_edit-profile');
 const profile = document.querySelector('.profile');
 const content = document.querySelector('.content');
-const popup = document.querySelector('.popup');
 
 const profileCloseBtn = profilePopup.querySelector('.popup__close-icon');
 const profileOpenBtn = profile.querySelector('.profile__edit-button');
@@ -22,6 +21,8 @@ const elements = document.querySelector('.elements');
 const template = document.querySelector('.template');
 
 const popupImg = document.querySelector('.popup-img');
+const popupPicture = popupImg.querySelector('.popup-img__picture');
+const popupTitle = popupImg.querySelector('.popup-img__title');
 
 const popupClosePicture = popupImg.querySelector('.popup__close-icon');
 
@@ -55,7 +56,7 @@ profilePopup.addEventListener('submit', handleProfileFormSubmit);
 openButtonAdd.addEventListener('click',() => openPopup(popupAddPlace));
 closeButtonPlace.addEventListener('click', () => closePopup(popupAddPlace));
 
-let initialCards = [
+const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -88,7 +89,6 @@ function render() {
 }
 
 function deleteElementCardPlace (evt) {
-  evt.preventDefault();
   const elementDelete = evt.target.closest(".element");
   elementDelete.remove();
 }
@@ -133,9 +133,6 @@ popupAddPlace.addEventListener('submit', saveElementCardPlace);
 function openPopupPicture(item) {
   openPopup(popupImg);
 
-  const popupPicture = popupImg.querySelector('.popup-img__picture');
-  const popupTitle = popupImg.querySelector('.popup-img__title');
-
   popupPicture.src = item.link;
   popupPicture.alt = item.name;
   popupTitle.textContent = item.name;
@@ -144,6 +141,5 @@ function openPopupPicture(item) {
 popupClosePicture.addEventListener('click', () => closePopup(popupImg));
 
 function toggleLike (evt) {
-  evt.preventDefault();
   evt.target.classList.toggle('element__like_active');
 }
