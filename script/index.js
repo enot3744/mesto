@@ -1,3 +1,4 @@
+// У меня консоль пустая, и нет файла такого commons.js
 const profilePopup = document.querySelector('.popup_edit-profile');
 const profile = document.querySelector('.profile');
 const content = document.querySelector('.content');
@@ -30,10 +31,13 @@ const popups = document.querySelectorAll('.popup');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+  enableValidation(config);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  enableValidation(config);
 }
 
 function closePopupEsc(evt) {
@@ -42,8 +46,6 @@ function closePopupEsc(evt) {
     closePopup(popupOpened);
   }
 }
-
-document.addEventListener('keydown', closePopupEsc);
 
 popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
@@ -103,7 +105,7 @@ const initialCards = [
   }
 ];
 
-function render() {
+function renderInitialCards() {
   const cards = initialCards.map(getElement);
   elements.append(...cards);
 }
@@ -133,10 +135,11 @@ function getElement(item) {
   return getCard;
 }
 
-render();
+renderInitialCards();
 
 function saveElementCardPlace (evt) {
   evt.preventDefault();
+  // Если я выношу их в глобальную область видимости, не записывается значение в карточку
   const titleValue = popupUserTitle.value;
   const imageValue = popupUserLink.value;
   const newPlace = {name:titleValue, link:imageValue};

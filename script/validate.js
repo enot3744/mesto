@@ -1,9 +1,11 @@
-enableValidation({
+const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__user',
   submitButtonSelector: '.popup__submit-button',
   inactiveButtonClass: 'popup__submit-button_disabled',
-}); 
+};
+
+enableValidation(config); 
 
 function enableValidation (setting) {
   const formElements = document.querySelectorAll(setting.formSelector);
