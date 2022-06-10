@@ -5,8 +5,6 @@ const config = {
   inactiveButtonClass: 'popup__submit-button_disabled',
 };
 
-enableValidation(config); 
-
 function enableValidation (setting) {
   const formElements = document.querySelectorAll(setting.formSelector);
   formElements.forEach((formElement) => {
