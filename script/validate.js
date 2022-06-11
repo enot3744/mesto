@@ -5,10 +5,12 @@ const config = {
   inactiveButtonClass: 'popup__submit-button_disabled',
 };
 
-function enableValidation (setting) {
-  const formElements = document.querySelectorAll(setting.formSelector);
+const formElements = document.querySelectorAll(config.formSelector);
   formElements.forEach((formElement) => {
+    enableValidation(config, formElement);
+  });
 
+function enableValidation (setting, formElement) {
     const inputElements = formElement.querySelectorAll(setting.inputSelector);
 
     inputElements.forEach((element) => {
@@ -16,7 +18,6 @@ function enableValidation (setting) {
     });
     
     toggleButton(formElement, setting);
-  })
 }
 
 function handleFormInput(evt, formElement, setting) {

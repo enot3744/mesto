@@ -31,8 +31,10 @@ const popups = document.querySelectorAll('.popup');
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
-  // Если вызывать функцию глобально, то перестает работать. т.е. кнопка снова становится активной после добавления карточки
-  enableValidation(config);
+  const formElement = popup.querySelector('.popup__form');
+  if (formElement !== null) { 
+    toggleButton(formElement, config);
+  }
 }
 
 function closePopup(popup) {
