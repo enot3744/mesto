@@ -2,7 +2,6 @@ const profilePopup = document.querySelector('.popup_edit-profile');
 const profile = document.querySelector('.profile');
 const content = document.querySelector('.content');
 
-
 const profileCloseBtn = profilePopup.querySelector('.popup__close-icon');
 const profileOpenBtn = profile.querySelector('.profile__edit-button');
 
@@ -28,13 +27,17 @@ const popupTitle = popupImg.querySelector('.popup-img__title');
 const popupClosePicture = popupImg.querySelector('.popup__close-icon');
 const popups = document.querySelectorAll('.popup');
 
+const formEditProfile = profilePopup.querySelector('.popup__form_profile');
+const formAddPlace = popupAddPlace.querySelector('.popup__form_place');
+
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
-  const formElement = popup.querySelector('.popup__form');
-  if (formElement !== null) { 
-    toggleButton(formElement, config);
-  }
+}
+
+function openAddPlacePopup() {
+  openPopup(popupAddPlace);
+  toggleButton(formAddPlace, config);
 }
 
 function closePopup(popup) {
@@ -54,7 +57,7 @@ popups.forEach((popup) => {
     if (evt.target.classList.contains('popup_opened')) {
       closePopup(popup);
     }
-  })
+  });
 });
 
 function openProfilePopup () {
@@ -62,6 +65,8 @@ function openProfilePopup () {
 
   popupUserName.value = profilePersonality.textContent;
   popupUserProfession.value = profileProfession.textContent;
+
+  toggleButton(formEditProfile, config);
 }
 
 profileOpenBtn.addEventListener('click', openProfilePopup);
@@ -76,7 +81,7 @@ function handleProfileFormSubmit (evt) {
 
 profilePopup.addEventListener('submit', handleProfileFormSubmit);
 
-openButtonAdd.addEventListener('click',() => openPopup(popupAddPlace));
+openButtonAdd.addEventListener('click', openAddPlacePopup);
 closeButtonPlace.addEventListener('click', () => closePopup(popupAddPlace));
 
 
@@ -141,9 +146,7 @@ renderInitialCards();
 
 function saveElementCardPlace (evt) {
   evt.preventDefault();
-  const titleValue = popupUserTitle.value;
-  const imageValue = popupUserLink.value;
-  const newPlace = {name:titleValue, link:imageValue};
+  const newPlace = {name:popupUserTitle.value, link:popupUserLink.value};
 
   elements.prepend(getElement(newPlace));
 

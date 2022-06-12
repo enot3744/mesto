@@ -5,19 +5,19 @@ const config = {
   inactiveButtonClass: 'popup__submit-button_disabled',
 };
 
-const formElements = document.querySelectorAll(config.formSelector);
-  formElements.forEach((formElement) => {
-    enableValidation(config, formElement);
-  });
+enableValidation(config);
 
-function enableValidation (setting, formElement) {
+function enableValidation (setting) {
+  const formElements = document.querySelectorAll(setting.formSelector);
+
+  formElements.forEach((formElement) => {
     const inputElements = formElement.querySelectorAll(setting.inputSelector);
 
     inputElements.forEach((element) => {
       element.addEventListener('input', (evt) => handleFormInput(evt, formElement, setting));
     });
-    
     toggleButton(formElement, setting);
+  });
 }
 
 function handleFormInput(evt, formElement, setting) {
@@ -31,7 +31,7 @@ function handleFormInput(evt, formElement, setting) {
 
 function toggleButton(formElement, setting) {
   const btnElement = formElement.querySelector(setting.submitButtonSelector);
-  btnElement.disabled = !formElement.checkValidity();
 
+  btnElement.disabled = !formElement.checkValidity(); 
   btnElement.classList.toggle(setting.inactiveButtonClass, !formElement.checkValidity());
 }
